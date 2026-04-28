@@ -314,7 +314,8 @@ footer {
 /*LOGO*/
 .logo-img {
   width: 420px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
+  display: block;
   filter: drop-shadow(0 0 20px #00d4ff88);
   animation: float 3s ease-in-out infinite;
 }
