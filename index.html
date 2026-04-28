@@ -216,7 +216,7 @@
 </script>
 
 <!-- LIGHTBOX -->
- <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+ <div class="lightbox" id="lightbox">
   <div class="lightbox-close">X CERRAR</div>
   <img id="lightboxImg" src="" alt="">
  </div>
@@ -237,7 +237,7 @@
 
   // Cerrar solo si haces clic FUERA de la imagen
   document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target !== document.getElementById('lightboxImg')) {
+    if (e.target.id === "lightbox") {
       cerrarLightbox();
     }
   });
