@@ -8,29 +8,36 @@
 </head>
 <body>
     <header>
+      <img src="img/logo.png" alt="Aguillon MX Logo" class="logo-img">
   <h1>@Aguillon_MX</h1>
   <p>EA Creator Oficial · Apex Legends LATAM</p>
 </header>
 
 <section>
   <h2>Mis Números</h2>
+
   <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-numero">16K</div>
+
+    <div class="stat-box"> 
+    <div class="stat-numero" data-target="16012">0</div>
       <div class="stat-label">Seguidores Facebook</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-numero">4.8M</div>
+    
+    <div class="stat-box">
+    <div class="stat-numero" data-target="4800000">0</div>
       <div class="stat-label">Visualizaciones / mes</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-numero">307K</div>
+    
+    <div class="stat-box">
+    <div class="stat-numero"data-target="307006">0</div>
       <div class="stat-label">Interacciones</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-numero">601K</div>
+     
+    <div class="stat-box">
+    <div class="stat-numero"data-target="601000">0</div>
       <div class="stat-label">Reel más visto</div>
     </div>
+
   </div>
 </section>
 <section>
@@ -54,22 +61,94 @@
             <div class="red-seguidores">1K Seguidores</div>
         </a>
         
-        <a href="https://www.twitch.tv/aguillon_mx" target="_blank" class="red-card">
+        <a href="https://www.twitch.com/aguillon_mx" target="_blank" class="red-card">
             <div class="red-icon">📘</div>
             <div class="red-nombre">twitch</div>
             <div class="red-seguidores">360 Seguidores</div>
         </a>
     </div>
 </section>
+
+<!--GALERIA DE EVENTOS-->
+<section>
+  <h2>Eventos en Vivo</h2>
+  <p class="galeria-sub">Cobertura presencial - Torneos LAN - Apex Legends Mexico</p>
+  <div class="galeria-grid">
+    <div class="galeria-item">
+      <img src="img/LAN (1).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (2).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (3).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (4).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (5).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (6).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (7).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (8).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (9).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+     <div class="galeria-item">
+      <img src="img/LAN (10).jpg" alt="Torneo LAN Apex">
+      <div class="galeria-overlay">
+        <span>Torneo LAN Apex Legends</span>
+      </div>              
+    </div>
+
+  </div>
+</section>
+
 <!-- SOBRE MÍ -->
  <section>
     <h2>Sobre mi</h2>
     <div class="sobre-box">
+      <img src="img/perfil.jpg" alt="Aguillon MX"
+      alt="Aguillon MX" class="foto-perfil">
         <div class="sobre-texto">
             <p>Soy <strong>@Aguillon_MX</strong>, creador de contenido especializado en
             Apex Legends desde CDMX, Mexico. Cubro la escena competitiva de LATAM desde el dia 1 - noticias, clips, analisis y torneos.</p>
             <br>
-            <p>Soy <strong>EA Creator oficial</strong> a travez del programa
+            <p> <strong>EA Creator oficial</strong> a travez del programa
             EA Support a Creator, respaldo directo del publisher de Apex legends.</p>
             <br>
             <div class="sobre-tags">
@@ -95,5 +174,79 @@
 <footer>
     © 2026 Aguillon_MX · EA Creator Oficial · Apex Legends LATAM
 </footer>
+<script>
+  function animatorContador(elemento, objetivo, duracion) {
+    let inicio = 0;
+    let incremento = objetivo / (duracion / 16);
+
+    let timer = setInterval (() => {
+      inicio += incremento;
+      if (inicio >= objetivo) {
+        inicio = objetivo;
+        clearInterval(timer)
+      }
+
+      //formatear numero
+      if (objetivo >=1000000) {
+        elemento.textContent = ( inicio / 1000000).toFixed(1) + 'M';
+      } else if (objetivo >= 1000) {
+        elemento.textContent = (inicio / 1000).toFixed(0) + 'K';
+      } else {
+        elemento.textContent = Math.floor(inicio);
+      }
+    }, 16)
+  }
+
+  //Detectar cuando el elemento es visisble
+  const observer = new IntersectionObserver((entries)  => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const objetivo = parseInt(el.getAttribute('data-target'));
+        animatorContador(el, objetivo, 2000);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5});
+
+  //Aplicar a todos los numeros
+  document.querySelectorAll('.stat-numero').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+<!-- LIGHTBOX -->
+ <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+  <div class="lightbox-close">X CERRAR</div>
+  <img id="lightboxImg" src="" alt="">
+ </div>
+
+ <script>
+  // Lightbox CORREGIDO
+  document.querySelectorAll('.galeria-item img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation(); // 👈 Esto evita el bubbling
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+
+  function cerrarLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  // Cerrar solo si haces clic FUERA de la imagen
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target !== document.getElementById('lightboxImg')) {
+      cerrarLightbox();
+    }
+  });
+
+  // Cerrar con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') cerrarLightbox();
+  });
+</script>
+
 </body>
 </html>
