@@ -432,7 +432,7 @@ footer {
 }
 
 .lightbox.active {
-  display: flex !important;
+  display: flex !important; /* 👈 El !important es vital aquí */
   opacity: 1;
 }
 
@@ -656,11 +656,15 @@ align-items: center;
   flex-direction: column;
   background: rgba(8, 8, 8, 0.98);
   border-top: 1px solid #222;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .nav-mobile.open {
-  display: flex;
-  padding: 12px 0;
+  display: flex !important;
 }
 
 .nav-mobile a {
