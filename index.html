@@ -246,10 +246,13 @@
  <script>
   // Lightbox CORREGIDO
   document.querySelectorAll('.galeria-item img').forEach(img => {
-    img.addEventListener('pointerdown', (e) => {
+    img.addEventListener('click', (e) => {
       e.stopPropagation(); // 👈 Esto evita el bubbling
-      document.getElementById('lightboxImg').src = img.src;
-      document.getElementById('lightbox').classList.add('active');
+      const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
     });
   });
 

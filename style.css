@@ -432,7 +432,8 @@ footer {
 }
 
 .lightbox.active {
-  display: flex;
+  display: flex !important;
+  opacity: 1;
 }
 
 .lightbox img {
