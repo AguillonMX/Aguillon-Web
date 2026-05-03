@@ -246,7 +246,7 @@
  <script>
   // Lightbox CORREGIDO
   document.querySelectorAll('.galeria-item img').forEach(img => {
-    img.addEventListener('click', (e) => {
+    img.addEventListener('pointerdown', (e) => {
       e.stopPropagation(); // 👈 Esto evita el bubbling
       document.getElementById('lightboxImg').src = img.src;
       document.getElementById('lightbox').classList.add('active');

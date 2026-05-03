@@ -477,7 +477,9 @@ footer {
 @media (max-width: 768px) {
 /* NAVBAR*/
 .nav-links {display: none; }
-.hamburger {display: block; }
+.hamburger {display: block !important;
+color: var(--cian);
+ }
 
 /*Header*/
 header {
