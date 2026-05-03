@@ -7,13 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">AGUILLON<span>MX</span></div>
+      <ul class="nav-links">
+        <li><a href="#numeros">STATS</a></li>
+        <li><a href="#plataformas">PLATAFORMAS</a></li>
+        <li><a href="#eventos">EVENTOS</a></li>
+        <li><a href="#sobre">SOBRE</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="nav-mobile" id="navmobile">
+      <a href="#numeros" onclick="cerrarMenu()">STATS</a>
+      <a href="#plataformas" onclick="cerrarMenu()">PLATAFORMAS</a>
+      <a href="#eventos" onclick="cerrarMenu()">EVENTOS</a>
+      <a href="#sobre" onclick="cerrarMenu()">SOBRE</a>
+      <a href="#contacto" onclick="cerrarMenu()">CONTACTO</a>
+    </div>
+  </nav>
     <header>
       <img src="img/logo.png" alt="Aguillon MX Logo" class="logo-img">
   <h1>@Aguillon_MX</h1>
   <p>EA Creator Oficial · Apex Legends LATAM</p>
 </header>
 
-<section>
+<section class="reveal" id="numeros">
+  
+
   <h2>Mis Números</h2>
 
   <div class="stats-grid">
@@ -40,7 +62,7 @@
 
   </div>
 </section>
-<section>
+<section class="reveal" id="plataformas">
     <h2>Mis Plataformas</h2>
     <div class="redes-grid">
         <a href="https://www.facebook.com/profile.php?id=100054135470810&sk=about" target="_blank" class="red-card">
@@ -70,7 +92,7 @@
 </section>
 
 <!--GALERIA DE EVENTOS-->
-<section>
+<section class="reveal" id="eventos">
   <h2>Eventos en Vivo</h2>
   <p class="galeria-sub">Cobertura presencial - Torneos LAN - Apex Legends Mexico</p>
   <div class="galeria-grid">
@@ -139,7 +161,7 @@
 </section>
 
 <!-- SOBRE MÍ -->
- <section>
+ <section class="reveal" id="sobre">
     <h2>Sobre mi</h2>
     <div class="sobre-box">
       <img src="img/perfil.jpg" alt="Aguillon MX"
@@ -161,7 +183,7 @@
         </div>
     </div>
  </section>
-<section>
+<section class="reveal" id="contacto">
   <h2>Colaboraciones</h2>
   <div class="contacto-box">
     <p>Soy creador de contenido especializado en Apex Legends<br>
@@ -247,6 +269,41 @@
     if (e.key === 'Escape') cerrarLightbox();
   });
 </script>
+<script>
+  //ANIMACION REVEAL AL HACER SCROLL
+  const reveals = document.querySelectorAll('.reveal');
 
+  const observerReveal = new IntersectionObserver((entries) =>{
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1});
+
+  reveals.forEach(el => observerReveal.observe(el));
+
+  //NABVAR SCROLLL
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }
+  });
+
+  //HAMBUERGUER MENU
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      navMobile.classList.toggle('open');
+    });
+  }
+
+  function cerrarMenu() {
+    navMobile.classList.remove('open');
+  }
+</script>
 </body>
 </html>
