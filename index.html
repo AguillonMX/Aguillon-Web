@@ -93,70 +93,31 @@
 
 <!--GALERIA DE EVENTOS-->
 <section class="reveal" id="eventos">
-  <h2>Eventos en Vivo</h2>
-  <p class="galeria-sub">Cobertura presencial - Torneos LAN - Apex Legends Mexico</p>
-  <div class="galeria-grid">
-    <div class="galeria-item">
-      <img src="img/LAN (1).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (2).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (3).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (4).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (5).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (6).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (7).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (8).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (9).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
-     <div class="galeria-item">
-      <img src="img/LAN (10).jpg" alt="Torneo LAN Apex">
-      <div class="galeria-overlay">
-        <span>Torneo LAN Apex Legends</span>
-      </div>              
-    </div>
+  <h2>EVENTOS EN VIVO</h2>
+  <p class="galeria-sub">Cobertura presencial - Torneos LAM - Apex Legends Mexico</p>
 
+  <div class="carrusel-container">
+    <div class="carrusel" id="eventCarrusel">
+      <div class="carrusel-track" id="carruselTrack">
+        <img src="img/LAN (1).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (2).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (3).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (4).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (5).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (6).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (7).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (8).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (9).jpg" alt="Torneo LAN Apex">
+        <img src="img/LAN (10).jpg" alt="Torneo LAN Apex">
+      </div>
+    </div>
+    
+    <!--Controles-->
+    <button class="carrusel-btn prev" id="prevBtn">❮</button>
+    <button class="carrusel-btn next" id="nextBtn">❯</button>
+
+    <!--Dots (puntos)-->
+    <div class="carrusel-dots" id="carruselDots"></div>
   </div>
 </section>
 
@@ -196,117 +157,12 @@
 <footer>
     © 2026 Aguillon_MX · EA Creator Oficial · Apex Legends LATAM
 </footer>
-<script>
-  function animatorContador(elemento, objetivo, duracion) {
-    let inicio = 0;
-    let incremento = objetivo / (duracion / 16);
+<!--LIGHTBOX-->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" oneclick="cerrarLightbox()">X CERRAR</div>
+  <img id="lightboxImg" src="" alt="Imagen ampliada">
+</div>
 
-    let timer = setInterval (() => {
-      inicio += incremento;
-      if (inicio >= objetivo) {
-        inicio = objetivo;
-        clearInterval(timer)
-      }
-
-      //formatear numero
-      if (objetivo >=1000000) {
-        elemento.textContent = ( inicio / 1000000).toFixed(1) + 'M';
-      } else if (objetivo >= 1000) {
-        elemento.textContent = (inicio / 1000).toFixed(0) + 'K';
-      } else {
-        elemento.textContent = Math.floor(inicio);
-      }
-    }, 16)
-  }
-
-  //Detectar cuando el elemento es visisble
-  const observer = new IntersectionObserver((entries)  => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const objetivo = parseInt(el.getAttribute('data-target'));
-        animatorContador(el, objetivo, 2000);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5});
-
-  //Aplicar a todos los numeros
-  document.querySelectorAll('.stat-numero').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
-<!-- LIGHTBOX -->
- <div class="lightbox" id="lightbox">
-  <div class="lightbox-close">X CERRAR</div>
-  <img id="lightboxImg" src="" alt="">
- </div>
-
- <script>
-  // Lightbox CORREGIDO
-  document.querySelectorAll('.galeria-item img').forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.stopPropagation(); // 👈 Esto evita el bubbling
-      const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    
-    lightboxImg.src = img.src;
-    lightbox.classList.add('active');
-    });
-  });
-
-  function cerrarLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-  }
-
-  // Cerrar solo si haces clic FUERA de la imagen
-  document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target.id === "lightbox") {
-      cerrarLightbox();
-    }
-  });
-
-  // Cerrar con ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') cerrarLightbox();
-  });
-</script>
-<script>
-  //ANIMACION REVEAL AL HACER SCROLL
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observerReveal = new IntersectionObserver((entries) =>{
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1});
-
-  reveals.forEach(el => observerReveal.observe(el));
-
-  //NABVAR SCROLLL
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (nav) {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }
-  });
-
-  //HAMBUERGUER MENU
-  const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('navmobile');
-
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      navMobile.classList.toggle('open');
-    });
-  }
-
-  function cerrarMenu() {
-    navMobile.classList.remove('open');
-  }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
