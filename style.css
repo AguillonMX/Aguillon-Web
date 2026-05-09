@@ -246,8 +246,29 @@ section h2 {
 }
 
 .red-icono {
-    font-size: 42px;
+    font-size: 48px;
     margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.red-card:hover .red-icono {
+  transform: scale(1.1);
+}
+
+.red-card:nth-child(1) .red-icon { color: #1877f2; }  /* Facebook azul */
+.red-card:nth-child(2) .red-icon { color: #000000; }  /* TikTok negro */
+.red-card:nth-child(3) .red-icon { 
+    background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.red-card:nth-child(4) .red-icon { color: #9146ff; }  /* Twitch morado */
+
+/* Para móviles */
+@media (max-width: 768px) {
+    .red-icon {
+        font-size: 40px;
+    }
 }
 
 .red-nombre {
@@ -331,7 +352,6 @@ footer {
   .nav-links{display: none;}
   .hamburger {display: block !important;}
 
-  .stats-grid,
   .stats-grid{
     grid-template-columns: 1fr;
   }
@@ -627,9 +647,10 @@ gap: 28px;
 
 .nav-links a {
   text-decoration: none;
-  color: var(--gris);
-  font-size: 11px;
-  letter-spacing: 2px;
+  color: #cccccc;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   transition: color 0.2s;
 }
@@ -691,25 +712,32 @@ text-transform: uppercase;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 8px;
-  border: 1px solid #222;
+  border-radius: 0;
+  border: none;
+  background: transparent;
 }
 
 .carrusel {
   position: relative;
+  background: transparent;
 }
 
 .carrusel-track {
   display: flex;
   transition: transform 0.5s ease-in;
-  width: 100%;
+  gap: 0;
+  background: transparent;
 }
 .carrusel-track img {
+  transition: all 0.3s ease;
   min-width: 100%;
-  height: 420px;
-  object-fit: cover;
+  max-height: 500px;
+  width: auto;
+  object-fit: contain;
+  background: transparent !important;
   border-radius: 8px;
 }
+
 
 /*Controles*/
 .carrusel-btn {
@@ -763,6 +791,8 @@ transition: all 0.3s;
 /*Responsive*/
 @media(max-width: 768px) {
   .carrusel-track img {
-    height: 280px;
+    max-height: 280px;
+    min-height: 200px;
+    object-fit: contain;
   }
 }

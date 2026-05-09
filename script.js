@@ -44,7 +44,7 @@
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
     if (lb && lbImg) {
-        lbImgb.src = this.src;
+        lbImg.src = this.src;
         lb.classList.add('active');
     }
     });
@@ -177,3 +177,37 @@ document.addEventListener('click', (e) => {
 
   //Inicializar
   createDots();
+
+  function ajustarImagenesCarrusel() {
+    const imagenes = document.querySelectorAll('.carrusel-track img');
+
+    imagenes.forEach(img => {
+      img.addEventListener('load', function() {
+        const esVertical = this.naturalHeight > this.naturalWidth;
+
+        if(esVertical) {
+          this.style.objectFit = 'contain';
+          this.style.background = '#0a0a0a';
+          console.log('Imagen vertical detectada');
+        } else {
+          this.style.objectFit = 'cover';
+          this.style.background = 'transparent';
+          console.log('Imagen horizontal detectda');
+        }
+      });
+
+        if(img.complete) {
+          const esVertical = img.naturalHeight > img.naturalWidth;
+          if (esVertical) {
+            img.style.objectFit = 'contain';
+            img.style.background = '#0a0a0a';
+          } else {
+            img.style.objectFit = 'cover';
+            img.style.background = 'transparent';
+          }
+        }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', ajustarImagenesCarrusel);
+
