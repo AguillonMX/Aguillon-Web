@@ -93,17 +93,32 @@
 
   //HAMBUERGUER MENU
   const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('navmobile');
+  const navMobile = document.getElementById('nav-mobile');
 
   if (hamburger && navMobile) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       navMobile.classList.toggle('open');
     });
   }
 
+  // Cerrar al hacer clic en enlaces
+document.querySelectorAll('.nav-mobile a').forEach(link => {
+  link.addEventListener('click', cerrarMenu);
+});
+
+// Cerrar al hacer clic fuera
+document.addEventListener('click', (e) => {
+  if (navMobile && navMobile.classList.contains('open') && !e.target.closest('#navbar')) {
+    cerrarMenu();
+  }
+});
+
   function cerrarMenu() {
+  if (navMobile) {  // ✅ Validar antes de usar
     navMobile.classList.remove('open');
   }
+}
 //  =====================CARRUSEL=========================  //
   let currentIndex = 0;
   const track = document.getElementById('carruselTrack');
