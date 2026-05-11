@@ -159,16 +159,113 @@
         </div>
     </div>
  </section>
+ <section class="reveal" id="codigo-creator">
+    <h2>Codigo de Creador</h2>
+    <div class="codigo-box">
+      <div class="codigo-icono">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <h3>Apoya mi contenido</h3>
+      <p>Usa mi codigo de creador en la <strong>Tienda de Apex Legends</strong><br>y ayudame a seguir creando contenido para la comunidad LATAM</p>
+
+      <div class="codigo-contenedor">
+        <div class="codigo-card">
+          <span class="codigo-label">CODIGO</span>
+          <div class="codigo-valor" id="codigoValor">AguillonMX</div>
+          <button class="codigo-copiar" id="btnCopiar" onclick="copiarCodigo()">
+            <i class="fas fa-copy"></i> Copiar codigo
+          </button>
+          <span class="codigo-nota" id="copiarMensaje" style="display: none;">✓ ¡Copiado!</span>
+        </div>
+      </div>
+
+      <div class="codigo-pasos">
+        <div class="paso">
+          <div class="paso-numero">1</div>
+          <p>Entra a la <strong>Tienda de Apex Legends</strong></p>
+        </div>
+        <div class="paso">
+          <div class="paso-numero">2</div>
+          <p>Ve a la pestaña <strong>"Codigo de creador"</strong></p>
+        </div>
+        <div class="paso">
+          <div class="paso-numero">3</div>
+          <p>Ingresa: <strong>AguillonMX</strong> y confirma</p>
+        </div>
+        <div class="paso">
+          <div class="paso-numero">4</div>
+          <p>¡Listo! <strong>0% costo extra</strong> para ti</p>
+        </div>
+      </div>
+
+      <div class="codigo-beneficio">
+        <i class="fas fa-heart"></i>
+        <p>Al usar mi codigo, <strong>Ea me apoya directamente</strong> sin costo adicional para ti. ¡Gracias por el apoyo!</p>
+      </div>
+    </div>
+  </section>
+
+  <!--CONTACTO-->
 <section class="reveal" id="contacto">
   <h2>Colaboraciones</h2>
   <div class="contacto-box">
-    <p>Soy creador de contenido especializado en Apex Legends<br>
-    con audiencia 91% masculina entre 25-34 años en México y LATAM.</p>
-    <a href="mailto:aguillon.mx.contacto@gmail.com" class="btn-contacto">
-      CONTÁCTAME
-    </a>
-  </div>
+    <div class="contacto-icono">
+      <i class="fas fa-paper-plane"></i>
+    </div>
+    <h3>¿Listo para trabajar juntos?</h3>
+    <p>Soy creador de contenido especializado en<strong> Apex Legends</strong><br>
+    con audiencia <strong>91% masculina</strong> entre <strong>25-34 años</strong> en México y LATAM.</p>
+
+    <div class="contacto-beneficios">
+      <div class="beneficio">
+        <i class="fas fa-chart-line"></i>
+        <span>Alcance garantizado</span>
+      </div>
+      <div class="beneficio">
+        <i class="fas fa-bullhorn"></i>
+        <span>Promocion organica</span>
+      </div>
+      <div class="beneficio">
+        <i class="fas fa-user"></i>
+        <span>Comunidad comprometida</span>
+      </div>
+    </div>
+  
+    <!--FORMULARIO DE CONTACTO-->
+    <form class="contacto-form" id="contactForm" action="https://formsubmit.co/aguillon.mx.contacto@gmail.com" method="POST">
+      <!--Campos ocultos para la configuracion-->
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde Aguillon_MX">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_replyto" value="email">
+
+      <div class="form-grupo">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-grupo">
+        <input type="email" name="email" placeholder="Tu email" required>
+      </div>
+      <div class="form-grupo">
+        <input type="text" name="empresa" placeholder="Marca / Empresa">
+      </div>
+      <div class="form-grupo">
+        <textarea name="mensaje" rows="4" placeholder="Cuentame sobre tu propuesta..." required></textarea>
+      </div>
+      <button type="submit" class="btn-contacto">
+        <i class="fas fa-paper-plane"></i> ENVIAR MENSAJE
+      </button>
+      <p class="form-nota">* Te respondere en menos de 48 horas</p>
+    </form>
+
+    <!--Mensaje de exito (oculto inicialmente)-->
+    <div class="form-success" id="formSuccess" style="display: none;">
+      <i class="fas fa-check-circle"></i>
+      <p>¡Mensaje enviado! Te respondere pronto</p>
+    </div>
+  </div>  
 </section>
+
+<!--Parte de hasta abajo-->
 <footer>
     © 2026 Aguillon_MX · EA Creator Oficial · Apex Legends LATAM
 </footer>
