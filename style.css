@@ -190,7 +190,7 @@ section h2 {
 /* REDES SOCIALES */
 .redes-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:repeat(3, 1fr);
     gap: 16px;
     max-width: 900px;
     margin: 0 auto;
@@ -287,6 +287,7 @@ section h2 {
     font-size: 11px !important;
     display: block;
     margin-top: 4px;
+    color: var(--cian);
    }
 }
 
