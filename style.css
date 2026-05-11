@@ -190,29 +190,39 @@ section h2 {
 /* REDES SOCIALES */
 .redes-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.redes-grid a:last-child:nth-child(3n+1) {
+  grid-column: 2 / 3;
 }
 
 .red-card {
     background: var(--card);
-    border: 1px solid #222;
-    border-radius: 4px;
-    padding: 28px;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s;
-    display: block;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 70px;
 }
 
 .red-card:hover {
     border-color: #ff2d2d44;
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
 .red-icono {
-    font-size: 48px;
+    font-size: 22px;
     margin-bottom: 12px;
     transition: transform 0.3s ease;
 }
@@ -221,20 +231,45 @@ section h2 {
   transform: scale(1.1);
 }
 
-.red-card:nth-child(1) .red-icon { color: #1877f2; }  /* Facebook azul */
-.red-card:nth-child(2) .red-icon { color: #000000; }  /* TikTok negro */
-.red-card:nth-child(3) .red-icon { 
-    background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.red-icon {
+  font-size: 26px;
+  min-width: 40px;
+
+  background: linear-gradient(135deg, #00d4ff, #8b5cf6,#ff2d55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.35));
+  transition: all 0.3s ease;
 }
-.red-card:nth-child(4) .red-icon { color: #9146ff; }  /* Twitch morado */
+
+.red-nombre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--texto);
+  flex: 1;
+  text-align: left;
+}
+
+.red-card:hover .red-icon {
+  transform:  scale(1.15);
+
+  filter: drop-shadow(
+    0 0 18px rgba(139, 92, 246, 0.7)
+  );
+}
 
 /* Para móviles */
 @media (max-width: 768px) {
-    .red-icon {
-        font-size: 40px;
-    }
+   .redes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+   }
+
+   .red-card {
+    max-width: 100%;
+   }
 }
 
 .red-nombre {
@@ -514,15 +549,6 @@ header h1 {
   font-size: 9px;
 }
 
-/*Redes 2 columnas*/
-.redes-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.red-card {
-  padding: 20px 12px;
-}
 
 /*Galeria 1 columna */
 .galeria-grid {
@@ -553,12 +579,6 @@ footer {
 @media (max-width: 380px) {
  .stats-numero { font-size: 36px;}
  }
-
- .redes-grid {
-  grid-template-columns: 1fr;
- }
-
-
 
 /*NAVBAR*/
 #navbar {
@@ -1014,7 +1034,7 @@ transition: all 0.3s;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   color: var(--texto);
-  font-family: 'barlow', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: 15px;
   transition: all 0.3s ease;
 }
