@@ -263,7 +263,7 @@ section h2 {
 /* Para móviles */
 @media (max-width: 768px) {
    .redes-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1fr);
     gap: 10px;
    }
 
