@@ -263,21 +263,24 @@ section h2 {
 /* Para móviles */
 @media (max-width: 768px) {
    .redes-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 10px;
    }
 
    .red-card {
-   padding: 12px 16px;
+   padding: 12px 16px !important;
    min-height: 60px;
 }
    .red-icon {
-    font-size: 24px;
+    font-size: 24px !important;
     min-width: 40px;
    }
 
    .red-nombre {
-    font-size: 16px;
+    font-size: 16px !important;
+   }
+   .red-seguidores {
+    font-size: 10px !important;
    }
 }
 .red-nombre {
